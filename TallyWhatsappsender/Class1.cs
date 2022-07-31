@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -90,6 +90,13 @@ namespace TallyWhatsappsender
             catch (Exception ex)
             {
                 if (!(chrome_driver is null)) chrome_driver.Quit();
+                string st = "";
+                while(ex != null)
+                {
+                    st += ex.StackTrace;
+                    ex = ex.InnerException;
+                }
+                File.WriteAllText("Error.log", st);
                 return ex.Message;
             }
         }
