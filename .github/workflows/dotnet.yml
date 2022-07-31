@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: net40
+        dotnet-version: 4.0
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
